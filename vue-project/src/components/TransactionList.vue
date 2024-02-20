@@ -12,8 +12,12 @@
 </template>
 
 <script setup>
-    const transactions = [
-      { id:1, text: 'Flower', amount: 20.00 },
-      { id:2, text: 'Speaker', amount: -30.00 },
-    ];
+  import {defineProps} from 'vue';
+
+  const props = defineProps({
+    transactions: {
+      type: Array,
+      required: true
+    }
+  });
 </script>
