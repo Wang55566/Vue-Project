@@ -2,10 +2,10 @@
   <div>
     <Header />
     <div class="container">
-      <Balence :total="total"/>
+      <Balence :total="+total"/>
       <IncomeExpenses :income="+income" :expenses="+expenses"/>
       <TransactionList :transactions="transactions"/>
-      <AddTransaction />
+      <AddTransaction @transactionSubmitted="handleTransactionSubmitted"/>
     </div>
   </div>
 </template>
@@ -48,4 +48,7 @@ const expenses = computed(() => {
     .toFixed(2);
 });
 
+const handleTransactionSubmitted = (transactionData) => {
+  console.log(transactionData)
+}
 </script>
