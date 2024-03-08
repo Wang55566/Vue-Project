@@ -6,6 +6,7 @@
       <IncomeExpenses :income="+income" :expenses="+expenses"/>
       <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted"/>
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted"/>
+      <TestComponent :total="+total" @dataFetched="handleEmitData"/>
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@ import Balence from './components/Balence.vue';
 import IncomeExpenses from './components/IncomeExpenses.vue';
 import TransactionList from './components/TransactionList.vue';
 import AddTransaction from './components/AddTransaction.vue';
+import TestComponent from './components/TestComponent.vue'
 
 import {ref, computed, onMounted} from 'vue';
 import { useToast } from 'vue-toastification';
@@ -57,6 +59,10 @@ const expenses = computed(() => {
 
 const generateUniqueId = () => {
   return Math.floor(Math.random() * 10000)
+}
+
+const handleEmitData = (data) => {
+  console.log("emit data from event", data)
 }
 
 const handleTransactionSubmitted = (transactionData) => {
